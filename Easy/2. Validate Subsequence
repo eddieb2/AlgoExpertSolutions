@@ -1,0 +1,34 @@
+// Best Solution (complete)
+// Worst Case O(n) 
+function isValidSubsequence(array, sequence) {
+  let valid = false;
+  
+  while (sequence.length <= array.length) { // shorten both arrays
+    
+    if (sequence[0] !== array[0]) {
+      array.shift(); 
+    } else if (sequence[0] === array[0]){
+      sequence.shift();
+      array.shift();
+    }
+
+    if (sequence.length === 0) {
+      valid = true;
+      break;
+    }
+    
+  }
+
+  return valid;
+}
+
+/*
+  Stop Conditions 
+  - if the length of remaining elements in "sequence" is greater than the 
+    remaining elements in "array." 
+    
+  Loop While - "sequence" length <= "array" length
+  				* if match, remove both elements from their associate arrays
+          * if no match, remove element from "array" 
+          * if sequence length == 0, then we have reached the end and all elements have been found in the proper sequence
+*/
