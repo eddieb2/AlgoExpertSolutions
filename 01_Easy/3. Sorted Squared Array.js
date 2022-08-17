@@ -1,69 +1,67 @@
-// ======================================================================================
-// Solution 1
-// O(n) + O(n log n) = O(n log n) 
-// ======================================================================================
-
+// Solution 1: Optimal Time and Space Complexity
+// Time Complexity: O(n log n)
+// Space Complexity: O(n)
 function sortedSquaredArray(array) {
-  let sqrArr = [];
-  let negFound = false;
+	let sqrArr = [];
+	let negFound = false;
 
-  array.forEach(num => {                   // O(n)
-    sqrArr.push(Math.pow(num, 2))          // O(1)
+	array.forEach((num) => {
+		// O(n)
+		sqrArr.push(Math.pow(num, 2));
 
-    if (num < 0) {
-      negFound = true;               
-    }
-    
-  })
+		if (num < 0) {
+			negFound = true;
+		}
+	});
 
-  // If negative num is found, the array is unsorted.
-  if (negFound) {
-    sqrArr.sort((a,b) => {                 // O(n log n)
-      return a-b;
-    })
-  }
-  
-  return sqrArr
+	// If negative num is found, the array is unsorted.
+	if (negFound) {
+		sqrArr.sort((a, b) => {
+			// O(n log n)
+			return a - b;
+		});
+	}
+
+	return sqrArr;
 }
 
-/* --------- NOTES ---------
+/* Notes
 - Square each number in the array
 - Sort if negative number is found
 */
 
-
-
-
-// ======================================================================================
 // Solution 2
-// ======================================================================================
 
 function sortedSquaredArray(array) {
-  // Pointers
-  let smallestIndex = 0;
-  let largestIndex = array.length - 1;
-  let position = array.length - 1;
-  
-  let sqNumArr = [];
+	// Pointers
+	let smallestIndex = 0;
+	let largestIndex = array.length - 1;
+	let position = array.length - 1;
 
-  while (position > -1) { // Stop when we inserted the last element (from right to left)
-    
-    if (Math.abs(array[largestIndex]) > Math.abs(array[smallestIndex])) {
-      sqNumArr[position] = Math.pow(array[largestIndex], 2);
-      largestIndex--;
-    } else {
-      sqNumArr[position] = Math.pow(array[smallestIndex], 2);
-      smallestIndex++;
-    }
+	let sqNumArr = [];
 
-    position--;
-  }
+	while (position > -1) {
+		// Stop when we inserted the last element (from right to left)
 
-  // Final Array
-  return sqNumArr;
+		if (
+			Math.abs(array[largestIndex]) >
+			Math.abs(array[smallestIndex])
+		) {
+			sqNumArr[position] = Math.pow(array[largestIndex], 2);
+			largestIndex--;
+		} else {
+			sqNumArr[position] = Math.pow(array[smallestIndex], 2);
+			smallestIndex++;
+		}
+
+		position--;
+	}
+
+	// Final Array
+	return sqNumArr;
 }
 
-/* --------- NOTES ---------
+/* Notes
 cases 
   - no negatives 
       -> iterate left to right & square all nums    
