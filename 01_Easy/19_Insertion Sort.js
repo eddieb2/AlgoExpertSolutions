@@ -48,6 +48,7 @@ j-1 j
  j    
 [2, 5, 8, 9, 5, 6, 3] 
 [    ][             ]
+
        i
       j-1 j
 [2, 5, 8, 9, 5, 6, 3] -> third iteration -> BREAK ( j > j-1... j is already in the right pos.)
