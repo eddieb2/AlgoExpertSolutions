@@ -6,7 +6,6 @@ function threeNumberSum(array, targetSum) {
   array.sort((a,b) => a-b)
   
   let arr = []
-  let sum = null;
   
   for (let i = 0; i < array.length; i++) {
     for (let j = i+1; j < array.length-1; j++) {
