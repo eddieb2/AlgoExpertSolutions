@@ -9,6 +9,7 @@ function threeNumberSum(array, targetSum) {
   
   for (let i = 0; i < array.length; i++) {
     for (let j = i+1; j < array.length-1; j++) {
+      for (let k = j+1; k < array.length; k++) {
         if (array[i] + array[j] + array[k] === targetSum) {
           arr.push([array[i], array[j], array[k]])
         }
@@ -21,4 +22,5 @@ function threeNumberSum(array, targetSum) {
 
 // Do not edit the line below.
 exports.threeNumberSum = threeNumberSum;
+
 
